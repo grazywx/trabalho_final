@@ -19,34 +19,38 @@
             </style>
         @endif
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50 overflow-x-hidden">
-        
-                            <nav class=" flex flex-1  items-center  bg-primary h-[72px] max-w-full px-10 shadow-md text-white">
-                                <div class="flex items-center justify-start">
-                                    <div class="shrink-0 flex items-center">
-                                        <img src=" {{asset('images/logo.png')}}" alt="" style="width:100px; height: 50px;">
-                                    </div>
-                                </div>       
-                                <div class="ml-auto flex items-center space-x-4">
-                                    @auth
-                                        <a href="{{ url('/dashboard') }}" class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition     hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80    dark:focus-visible:ring-white ">
-                                            tela inicial
-                                        </a>
-                                    @else
-                                        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition    hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80   dark:focus-visible:ring-white">
-                                            Entrar
-                                        </a>
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50 ">
+        <nav class=" flex flex-1  items-center  bg-primary h-[72px] max-w-full px-10 shadow-md text-white">
+            <div class="flex items-center justify-start">
+                <div class="shrink-0 flex items-center">
+                    <img src=" {{asset('images/logo1.png')}}" alt="" style="width:130px; height: 130px;">
+                </div>
+            </div>       
+            <div class="ml-auto flex items-center ">
+                @auth
+                     <a href="{{ url('/dashboard') }}" class="rounded-md px-3 py-2 text-white ring-1 ring-transpatransition     hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-wdark:hover:text-white/80    dark:focus-visible:ring-white ">
+                        tela inicial
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transitiohover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-w80   dark:focus-visible:ring-white">
+                         Entrar
+                    </a>
 
-                                        @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition     hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/  80 dark:focus-visible:ring-white">
-                                              Registrar
-                                            </a>
-                                        @endif
-                                    @endauth
-                                </div>
+                    @if (Route::has('register'))
+                         <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-white ring-1 ring-transpatransition     hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-wdark:hover:text-white/  80 dark:focus-visible:ring-white">
+                            Registrar
+                         </a>
+                     @endif
+                @endauth
+            </div>
                                 
-                            </nav>
+        </nav>
+
+        <div class="flex justify-center items-center p-10" >
+            <img src=" {{asset('images/servicos.png')}}" alt="" style="width:80%; height: 50vh;">
+        </div>
                         
+                            
                     
 
     </body>           
