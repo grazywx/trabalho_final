@@ -1,19 +1,19 @@
-<nav x-data="{ open: false }" class="border-b border-gray-100" style="background-color: #87CEEB; color: white;">
+<nav x-data="{ open: false }" class="border-b border-gray-100" style=" z-index: 10; background-color: #87CEEB; color: white;  position:fixed; position: sticky; width:100%;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex items-center ">
-                <div class="shrink-0 flex items-center">
-                    <img src=" {{asset('images/logo1.png')}}" alt="" style="width:130px; height: 130px;">
+                <div class="shrink-0 flex items-center mt-2">
+                    <img src=" {{asset('images/logo4.png')}}" alt="" style="width:130px; height: 130px;">
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center  " >
+            <div class="hidden sm:flex sm:items-center " >
                 <div class="space-x-8">  
-                    <a href="#inicio" class="no-underline hover:text-gray-100">inicio</a>
-                    <a href="#fichas" class="no-underline hover:text-gray-100">Fichas</a>
-                    <a href="#consulta" class="no-underline hover:text-gray-100">Consultas</a>
-                    <a href="#medico" class="no-underline hover:text-gray-100">Médicos</a>
-                    <a href="#paciente" class="no-underline hover:text-gray-100">Pacientes</a>
+                    <a href="{{route('dashboard')}}" class="no-underline hover:text-gray-100">inicio</a>
+                    <a href="{{route('fichas.index')}}" class="no-underline hover:text-gray-100">Fichas</a>
+                    <a href="{{route('consultas.index')}}" class="no-underline hover:text-gray-100">Consultas</a>
+                    <a href="{{route('medicos.index')}}" class="no-underline hover:text-gray-100">Médicos</a>
+                    <a href="{{route('pacientes.index')}}" class="no-underline hover:text-gray-100">Pacientes</a>
                 </div>
                    
             </div>
@@ -22,7 +22,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6" > 
                 <x-dropdown align="right" width="48" >
                     <x-slot name="trigger"  >
-                        <button style="background-color: #87CEEB;" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white hover:text-gray-100 focus:outline-none transition ease-in-out duration-150">
+                        <button style="background-color: #87CEEB;" class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-white hover:text-gray-100 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">

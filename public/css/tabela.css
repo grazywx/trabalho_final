@@ -1,0 +1,99 @@
+@import "compass/css3";
+
+
+
+#consulta {
+  height: 100vh; 
+  background-color: #f4f4f4;
+  padding-top: 100px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  box-sizing: border-box; 
+}
+
+
+#paciente {
+  height: 100vh; 
+  background-color: #f4f4f4;
+  padding-top: 100px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  box-sizing: border-box; 
+}
+
+
+#medico{
+  height: 100vh; 
+  background-color: #f4f4f4;
+  padding-top: 100px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  box-sizing: border-box; 
+}
+
+#fichas {
+    height: 100vh; 
+    background-color: #f4f4f4;
+    padding-top: 100px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    box-sizing: border-box; 
+  }
+
+table {
+  font-family: 'Arial';
+  margin: 50px;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+  border-bottom: 2px solid #005eb4;
+  
+  tr {
+     &:hover {
+      background: #f4f4f4;
+      
+      a {
+        color: #005eb4;
+      }
+    }
+  }
+  th, td {
+    color: #999;
+    border: 1px solid #eee;
+    padding: 5px 28px;
+    border-collapse: collapse;
+  }
+  th {
+    background: #005eb4;
+    color: #fff;
+    text-transform: uppercase;
+    font-size:13px;
+    &.last {
+      border-right: none;
+    }
+  }
+}
+button {
+  border: none;
+  background-color: #005eb4;
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+  
+
+}
+button a {
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+  height: 100%; 
+  text-align: center;
+  line-height: 30px; 
+}
