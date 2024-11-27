@@ -25,7 +25,7 @@
             </style>
         @endif
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50 ">
+    <body class="font-sans antialiased bg-white">
         <nav class=" flex flex-1  items-center  bg-primary h-[72px] max-w-full px-10 shadow-md text-white" style="position:fixed; width:100%;">
             <div class="flex items-center justify-start">
                 <div class="shrink-0 flex items-center mt-2">

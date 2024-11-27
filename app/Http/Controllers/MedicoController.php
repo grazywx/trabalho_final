@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MedicoSupportRequest;
 use Illuminate\Http\Request;
 use App\Models\Medico;
 
@@ -29,10 +30,7 @@ class MedicoController extends Controller
         return view('criar/medico_create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(MedicoSupportRequest $request)
     {
         $created = $this->medico->create([
             'nome' => $request->input('nome'),
@@ -63,7 +61,7 @@ class MedicoController extends Controller
        return view('editar/medico_edit', ['medico' => $medico]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(MedicoSupportRequest $request, string $id)
     {
         $updated = $this->medico->where('id', $id)->update($request->except(['_token', '_method']));
         
