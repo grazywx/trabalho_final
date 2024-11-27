@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
+use App\Http\Requests\PacienteSupportRequest;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
 
@@ -27,7 +29,7 @@ class PacienteController extends Controller
         return view('criar/paciente_create');
     }
 
-    public function store(Request $request)
+    public function store(PacienteSupportRequest $request)
     {
         Carbon::setLocale('pt_BR');
 
@@ -65,7 +67,7 @@ class PacienteController extends Controller
        return view('editar/paciente_edit', ['paciente' => $paciente]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(PacienteSupportRequest $request, string $id)
     {
         $updated = $this->paciente->where('id', $id)->update($request->except(['_token', '_method']));
         

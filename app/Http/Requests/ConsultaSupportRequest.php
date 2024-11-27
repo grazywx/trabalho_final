@@ -11,7 +11,7 @@ class ConsultaSupportRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class ConsultaSupportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nome' => 'required| min:5| max:100',
+            'rg' => 'required| min:8| max:10',
+            'motivo_consulta' => 'required| min:6| max:100',
+            'data_consulta' => 'required| min:6| max:8',
+            'hora' => 'required| min:5| max:10',
+            
         ];
     }
 }

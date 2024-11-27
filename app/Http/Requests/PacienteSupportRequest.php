@@ -11,7 +11,7 @@ class PacienteSupportRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class PacienteSupportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nome' => 'required| min:4| max:100',
+            'email' => 'required| min:6| max:20',
+            'data_nascimento' => 'required| min:6| max:10',
+            'genero' => 'required| min:1| max:10',
+            'endereco' => 'required| min:10| max:100',
         ];
     }
 }

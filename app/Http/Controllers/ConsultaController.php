@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Carbon\Carbon;
+use App\Http\Requests\ConsultaSupportRequest;
 use Illuminate\Http\Request;
 use App\Models\Consulta;
 
@@ -29,7 +31,7 @@ class ConsultaController extends Controller
         return view('criar/consulta_create');
     }
 
-    public function store(Request $request)
+    public function store(ConsultaSupportRequest $request)
     {
         Carbon::setLocale('pt_BR');
 
@@ -66,7 +68,7 @@ class ConsultaController extends Controller
        return view('editar/consulta_edit', ['consulta' => $consulta]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(ConsultaSupportRequest $request, string $id)
     {
         $updated = $this->consulta->where('id', $id)->update($request->except(['_token', '_method']));
         
