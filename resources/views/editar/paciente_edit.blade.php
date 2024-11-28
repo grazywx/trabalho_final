@@ -11,9 +11,18 @@
     <link href="/css/form.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-@if (session()->has('message'))
-    {{ session()->get('message') }}   
-@endif
+    <div style="text-align:center; padding-top: 20px;">
+        @if (session()->has('message'))
+            {{ session()->get('message') }}   
+        @endif
+        @if($errors->any())
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        @endif
+
+    </div>
+
 
 <div class="card">
     <form class="card-form" action="{{ route('pacientes.update',['paciente' => $paciente->id]) }}" method="post" enctype="multipart/form-data">

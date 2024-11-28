@@ -25,7 +25,7 @@ class ConsultaSupportRequest extends FormRequest
             'nome' => 'required| min:5| max:100',
             'rg' => 'required| min:8| max:10',
             'motivo_consulta' => 'required| min:6| max:100',
-            'data_consulta' => 'required| min:6| max:8',
+            'data_consulta' => 'required| min:6| max:10',
             'hora' => 'required| min:5| max:10',
             
         ];

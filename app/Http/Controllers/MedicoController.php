@@ -45,6 +45,7 @@ class MedicoController extends Controller
             $medicos = Medico::all(); 
             
             return view('medicos', ['medicos' => $medicos]);
+           
         }
         
         return redirect()->back()->with('message', 'Erro ao criar!');

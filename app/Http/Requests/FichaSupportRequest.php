@@ -23,10 +23,14 @@ class FichaSupportRequest extends FormRequest
     {
         return [
             'nome' => 'required| min:4| max:100',
-            'email' => 'required| min:6| max:20',
             'data_nascimento' => 'required| min:6| max:10',
             'genero' => 'required| min:1| max:10',
             'endereco' => 'required| min:10| max:100',
+            'data_ficha' => 'required| min:6| max:10',
+            'descricao' => 'required| min:10| max:100',
+            'diagnostico' => 'required| min:10| max:100',
+            'prescricao' => 'required| min:10| max:100',
+            'medico' => 'required| min:4| max:100',
         ];
     }
 }

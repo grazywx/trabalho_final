@@ -3,69 +3,87 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\FichaSupportRequest;
 use Illuminate\Http\Request;
 use App\Models\Ficha;
-
+use App\Models\Paciente;
 
 class FichaController extends Controller
 {
     public readonly Ficha $ficha;
 
-    public function __construct(){
-        $this->ficha = new Ficha();
+    public function __construct()
+    {
+        $this->ficha = new ficha();
     }
+
 
     public function index()
     {
-        $ficha = Ficha::all();
-        return view('fichas',['fichas'=> $ficha]);
+        $fichas = Ficha::with('paciente')->get();
+        return view('fichas', ['fichas' => $fichas]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
+     
     public function create()
     {
-        //
+        $pacientes = Paciente::all();
+        return view('criar/ficha_create', compact('pacientes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(FichaSupportRequest $request)
     {
-        //
+        $created = $this->ficha->create([
+            'nome' => $request->input('nome'),
+            'data_nascimento' => $request->input('data_nascimento'),
+            'genero' => $request->input('genero'),
+            'endereco' => $request->input('endereco'),
+            'data_ficha' => $request->input('data_ficha'),
+            'descricao' => $request->input('descricao'),
+            'diagnostico' => $request->input('diagnostico'),
+            'prescricao' => $request->input('prescricao'),
+            'medico' => $request->input('medico'),
+            
+        ]);
+    
+       
+        if ($created) {
+            $fichas = Ficha::all(); 
+            
+            return view('fichas', ['fichas' => $fichas]);
+        }
+        
+        return redirect()->back()->with('message', 'Erro ao criar!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+ 
+    public function show(Ficha $ficha)
     {
-        //
+        return view('deletar/ficha_delete', ['ficha' => $ficha]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Ficha $ficha)
     {
-        //
+       return view('editar/ficha_edit', ['ficha' => $ficha]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(FichaSupportRequest $request, string $id)
     {
-        //
+        $updated = $this->ficha->where('id', $id)->update($request->except(['_token', '_method']));
+        
+        if($updated) {
+            $fichas = Ficha::all(); 
+            return view('fichas', ['fichas' => $fichas]);
+        }
+        return redirect()->back()->with('message', 'Erro ao atualizar!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(string $id)
     {
-        //
+        $this->ficha->where('id', $id)->delete();
+
+        return redirect()->route('fichas.index');
     }
 }

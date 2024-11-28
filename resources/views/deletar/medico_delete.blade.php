@@ -12,9 +12,19 @@
     <link href="/css/form.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <div style="text-align:center; padding-top: 20px;">
+        @if (session()->has('message'))
+            {{ session()->get('message') }}   
+        @endif
+        @if($errors->any())
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        @endif
+
+    </div>
+
 <div class="container" >
-	
-   
     <div class="card">
        
        <form class="card-form" action="{{ route('medicos.destroy',['medico' => $medico->id]) }}" method="post" enctype="multipart/form-data">

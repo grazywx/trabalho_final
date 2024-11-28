@@ -24,8 +24,9 @@
                     <div id="button" style="text-align: center;">
                         <button><a href="{{route('medicos.create')}}">Adicionar Médico</a></button>
                     </div>
-            
+                   
                         <table class="styled-table" style="text-align: center;">
+                       
                         <thead>
                             <tr>
                             
@@ -50,8 +51,10 @@
                                     </td>
                                 </tr>
                             @endforeach
+
                         </table>
-            </div>
+                    
+    </div>
 </body>
 </html>
 

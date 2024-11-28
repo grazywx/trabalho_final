@@ -23,7 +23,7 @@
 <div id="fichas" class="100-vh" style="padding-top: 150px;">
     <h4 style="text-align: center; color: #005eb4; ">Fichas</h4>
     <div id="button" >
-        <button><a href="">Adicionar Nova Ficha</a></button>
+        <button><a href="{{route('fichas.create')}}">Adicionar Nova Ficha</a></button>
     </div>
 
     <table class="styled-table">
@@ -31,10 +31,10 @@
         <tr>
             
             <th>Nome</th>
-            <th>Gênero</th>
             <th>Data de Nascimento</th>
+            <th>Gênero</th>
             <th>Endereço</th>
-            <th>Data da Consulta</th>
+            <th>Data da ficha</th>
             <th>Descrição</th>
             <th>Diagnostico</th>
             <th>Prescrição</th>
@@ -43,22 +43,23 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="">Editar</a>  
-                <a href="">Deletar</a>
-            </td>
-        </tr>
-        
+        @foreach ($fichas as $ficha)
+            <tr>
+                <td>{{$ficha->nome}}</td>
+                <td>{{$ficha->data_nascimento}}</td>
+                <td>{{$ficha->genero}}</td>
+                <td>{{$ficha->endereco}}</td>
+                <td>{{$ficha->data_ficha}}</td>
+                <td>{{$ficha->descricao}}</td>
+                <td>{{$ficha->diagnostico}}</td>
+                <td>{{$ficha->prescricao}}</td>
+                <td>{{$ficha->medico}}</td>
+                <td>
+                    <a href="{{ route('fichas.edit',['ficha' => $ficha->id])}}">Editar</a>  
+                    <a href="{{ route('fichas.show',['ficha' => $ficha->id])}}">Deletar</a>
+                </td>
+            </tr>
+        @endforeach
     </table>
 
 
